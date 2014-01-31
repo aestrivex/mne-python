@@ -2334,10 +2334,14 @@ def plot_connectivity_circle(con, node_names, indices=None, n_lines=None,
                              textcolor='white', node_edgecolor='black',
                              linewidth=1.5, colormap='hot', vmin=None,
                              vmax=None, colorbar=True, title=None,
+<<<<<<< HEAD
                              colorbar_size=0.2, colorbar_pos=(-0.3, 0.1),
                              fontsize_title=12, fontsize_names=8,
                              fontsize_colorbar=8, padding=6.,
                              fig=None, subplot=111):
+=======
+							 interactive=True):
+>>>>>>> made interaction optional in circle plot
     """Visualize connectivity as a circular graph.
 
     Note: This code is based on the circle graph example by Nicolas P. Rougier
@@ -2385,6 +2389,7 @@ def plot_connectivity_circle(con, node_names, indices=None, n_lines=None,
         Display a colorbar or not.
     title : str
         The figure title.
+<<<<<<< HEAD
     colorbar_size : float
         Size of the colorbar.
     colorbar_pos : 2-tuple
@@ -2404,6 +2409,10 @@ def plot_connectivity_circle(con, node_names, indices=None, n_lines=None,
         Location of the subplot when creating figures with multiple plots. E.g.
         121 or (1, 2, 1) for 1 row, 2 columns, plot 1. See
         matplotlib.pyplot.subplot.
+=======
+	interactive : bool
+		When enabled, click on a node to show only connections to that node
+>>>>>>> made interaction optional in circle plot
 
     Returns
     -------
@@ -2597,10 +2606,11 @@ def plot_connectivity_circle(con, node_names, indices=None, n_lines=None,
 
     return fig, axes
     #Add callback for interaction
-    callback = partial(_plot_connectivity_circle_onpick, fig=fig,
-        indices=indices, n_nodes=n_nodes)
+	if interactive:
+		callback = partial(_plot_connectivity_circle_onpick, fig=fig,
+			indices=indices, n_nodes=n_nodes)
 
-    fig.canvas.mpl_connect('button_press_event',callback)
+		fig.canvas.mpl_connect('button_press_event',callback)
 
     return fig
 
