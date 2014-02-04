@@ -639,3 +639,5 @@ of commits):
 .. _Nick Ward: http://www.ucl.ac.uk/ion/departments/sobell/Research/NWard
 
 .. _Tal Linzen: http://tallinzen.net/
+
+.. _Roan LaPlante: http://github.com/aestrivex
