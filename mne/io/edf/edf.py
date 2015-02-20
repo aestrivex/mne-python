@@ -196,9 +196,6 @@ class RawEDF(_BaseRaw):
         cal = np.array([ch['cal'] for ch in self.info['chs']], float)
         gains = np.atleast_2d(self._edf_info['units'] * (physical_range / cal))
 
-        import pdb
-        pdb.set_trace()
-
         with open(self.info['filename'], 'rb') as fid:
             # extract data
             fid.seek(data_offset)
